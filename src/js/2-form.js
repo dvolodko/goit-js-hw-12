@@ -27,17 +27,12 @@ function submitHandler(e) {
   e.preventDefault();
   if (formData.email && formData.message) {
     console.log(formData);
+    form.reset();
     clearFormData();
-    populateForm();
     localStorage.removeItem(storageKey);
   } else {
     alert('Fill please all fields');
   }
-}
-
-function clearFormData() {
-  formData.email = '';
-  formData.message = '';
 }
 
 function populateFormData() {
@@ -45,7 +40,12 @@ function populateFormData() {
   formData.message = localStorageData.message;
 }
 
+function clearFormData() {
+  formData.email = '';
+  formData.message = '';
+}
+
 function populateForm() {
-  form[0].value = formData.email;
-  form[1].value = formData.message;
+  form.elements.email.value = formData.email;
+  form.elements.message.value = formData.message;
 }

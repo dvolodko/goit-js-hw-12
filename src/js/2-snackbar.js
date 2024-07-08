@@ -14,14 +14,14 @@ function submitHandler(e) {
   promise
     .then(value => {
       iziToast.success({
-        title: `✅ ${value} promise in ${delay}ms`,
+        title: `✅ Fulfilled promise in ${value}ms`,
         message: '',
         position: 'topRight',
       });
     })
     .catch(error => {
       iziToast.error({
-        title: `❌ ${error} promise in ${delay}ms`,
+        title: `❌ Rejected promise in ${error}ms`,
         message: '',
         position: 'topRight',
       });
@@ -33,9 +33,9 @@ function promiseGenerator(delay, shouldResolve) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (shouldResolve) {
-        resolve('Resolved');
+        resolve(delay);
       } else {
-        reject('Rejected');
+        reject(delay);
       }
     }, delay);
   });

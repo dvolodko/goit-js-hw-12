@@ -1,3 +1,3 @@
-# goit-js-hw-10
+# goit-js-hw-11
 
-Tenth JS homework
+Eleventh JS homework

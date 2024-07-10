@@ -2,9 +2,3 @@ body {
   padding: 16px;
   font-family: 'Montserrat', sans-serif;
 }
-
-.task-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}

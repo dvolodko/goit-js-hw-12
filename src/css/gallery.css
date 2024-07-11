@@ -72,6 +72,7 @@
   padding-bottom: 4px;
   opacity: 1;
   transform: scale(1);
+  transform-origin: top;
   transition: opacity 250ms linear, transform 250ms linear;
   .gallery-item:hover &,
   .gallery-item:focus {

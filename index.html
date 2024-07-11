@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/goit-js-hw-10/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/goit-js-hw-11/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main | GoIT JS Homework 10</title>
+    <title>Main | GoIT JS Homework 11</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"
@@ -16,16 +16,24 @@
       rel="stylesheet"
     />
     
-    <link rel="stylesheet" href="/goit-js-hw-10/assets/styles-cd9a7286.css">
+    
+    <script type="module" crossorigin src="/goit-js-hw-11/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/vendor-8c59ed88.js">
+    <link rel="stylesheet" href="/goit-js-hw-11/assets/vendor-1cd1f9d9.css">
+    <link rel="stylesheet" href="/goit-js-hw-11/assets/index-d9f51187.css">
   </head>
   <body>
-    <ul class="task-list">
-      <li>
-        <a href="./1-timer.html">Timer</a>
-      </li>
-      <li>
-        <a href="./2-snackbar.html">Snackbar</a>
-      </li>
-    </ul>
+    <div class="container">
+      <form class="form">
+        <input
+          class="search-input"
+          type="text"
+          name="searchField"
+          placeholder="Search images..."
+        />
+        <button class="button" type="submit">Search</button>
+      </form>
+      <ul class="gallery"></ul>
+    </div>
   </body>
 </html>

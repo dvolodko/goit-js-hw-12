@@ -1,8 +1,10 @@
 .container {
+  max-width: 1440px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 
 .form {
@@ -39,8 +41,26 @@
 .gallery-item {
   position: relative;
   width: calc((100% - 24px * 2) / 3);
-  height: 200px;
-  border: 1px solid #808080;
+  aspect-ratio: 16 / 9;
+  transform: scale(1);
+  box-shadow: 0.3px 0.6px 0.8px #a1a1a14a, 0.9px 1.7px 2.2px -0.6px #a1a1a14a,
+    1.7px 3.3px 4.2px -1.2px #a1a1a14a, 3.4px 6.7px 8.5px -1.9px #a1a1a14a,
+    6.6px 13px 16.4px -2.5px #a1a1a14a;
+  transition: transform 250ms linear, box-shadow 250ms linear;
+  &:hover,
+  &:focus {
+    transform: scale(1.06);
+    box-shadow: 0.3px 0.6px 0.8px hsl(0deg 0% 63% / 0.27),
+      1.6px 3.1px 3.9px -0.3px hsl(0deg 0% 63% / 0.27),
+      2.8px 5.5px 6.9px -0.6px hsl(0deg 0% 63% / 0.27),
+      4.3px 8.4px 10.6px -0.8px hsl(0deg 0% 63% / 0.27),
+      6.2px 12.2px 15.4px -1.1px hsl(0deg 0% 63% / 0.27),
+      9px 17.6px 22.2px -1.4px hsl(0deg 0% 63% / 0.27),
+      12.7px 25px 31.5px -1.7px hsl(0deg 0% 63% / 0.27),
+      17.8px 35px 44.2px -1.9px hsl(0deg 0% 63% / 0.27),
+      24.5px 48.1px 60.7px -2.2px hsl(0deg 0% 63% / 0.27),
+      33px 64.9px 81.9px -2.5px hsl(0deg 0% 63% / 0.27);
+  }
 }
 
 .gallery-image-stats {
@@ -50,6 +70,14 @@
   background-color: #fff;
   padding-top: 4px;
   padding-bottom: 4px;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms linear, transform 250ms linear;
+  .gallery-item:hover &,
+  .gallery-item:focus {
+    opacity: 0;
+    transform: scale(0.95);
+  }
 }
 
 .gallery-image-stats-list {
@@ -66,4 +94,45 @@
 
 .gallery-image-stats-title {
   font-weight: 600;
+}
+
+.gallery-image-stats-text {
+  font-size: 12px;
+  line-height: 2;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+}
+
+.loader::after,
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #4e75ff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: animloader 2s linear infinite;
+}
+
+.loader::after {
+  animation-delay: 1s;
+}
+
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
 }

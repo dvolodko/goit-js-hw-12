@@ -10,12 +10,10 @@ export function fetchImages(query) {
     safesearch: true,
   });
 
-  return fetch(`${basicUrl}?${searchParams}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    })
-    .catch(error => console.log(error));
+  return fetch(`${basicUrl}?${searchParams}`).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
 }

@@ -34,25 +34,35 @@ function submitHandler(e) {
 
   gallery.innerHTML = '<span class="loader"></span>';
 
-  fetchImages(query).then(images => {
-    if (images.hits.length === 0) {
+  fetchImages(query)
+    .then(images => {
+      if (images.hits.length === 0) {
+        iziToast.error({
+          title: 'Oops!',
+          message:
+            'Sorry, there are no images matching your search query. Please try again!',
+          position: 'topRight',
+        });
+        gallery.innerHTML = '';
+        return;
+      } else {
+        iziToast.success({
+          title: 'Hooray!',
+          message: `We have found ${images.hits.length} images for you!`,
+          position: 'topRight',
+        });
+      }
+
+      gallery.innerHTML = '';
+      renderImages(images.hits);
+      lightBox.refresh();
+    })
+    .catch(error => {
       iziToast.error({
         title: 'Oops!',
-        message:
-          'Sorry, there are no images matching your search query. Please try again!',
+        message: `Sorry, there is some error: ${error}`,
         position: 'topRight',
       });
-    } else {
-      iziToast.success({
-        title: 'Hooray!',
-        message: `We have found ${images.hits.length} images for you!`,
-        position: 'topRight',
-      });
-    }
-
-    gallery.innerHTML = '';
-    renderImages(images.hits);
-    lightBox.refresh();
-  });
+    });
   form.reset();
 }

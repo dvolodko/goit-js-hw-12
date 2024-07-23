@@ -81,6 +81,7 @@ async function imagesHandler(images) {
 function resetGallery() {
   page = 1;
   gallery.innerHTML = '';
+  loadMoreBtn.classList.add('hidden');
 }
 
 function scrollByTwoItems() {
